@@ -1,0 +1,17 @@
+CONFIGURE YOUR ENV FILE FOR GOOGLE MAPS
+1. create .env file in project root folder
+2. create variable REACT_APP_GOOGLE_API='' inside .env file
+3. add your personal API key from Google Console into ''
+4. run your project using npm start or yarn start
+
+CREATE BRANCHES WHEN MERGING IN YOUR WORK
+In VS Code terminal:
+1. git checkout -b [YOUR NAME]/[TYPE OF WORK] -- ex aftab/renderGoogleMap
+
+
+AFTER DONE WITH SPECIFIC PART ex: adding google maps
+1. Click on 3rd button on left side pannel of VS Code
+2. Type in message at top ex: added google maps
+3. Click on Check mark, right above it
+4. Sycn Changes with Github by pressing on button
+
