@@ -16,9 +16,9 @@ function App() {
     setSearchItem(e.target.value);
   }
 
-  useEffect(() => {
-    if(searchItem.length > 0) getPlaces('Burger King')
-  },[searchItem])
+  // useEffect(() => {
+  //   if(searchItem.length > 0) getPlaces('Burger King')
+  // },[searchItem])
 
   return (
     <div className="App" style={{width: window.innerWidth, alignItems: 'center'}}>
