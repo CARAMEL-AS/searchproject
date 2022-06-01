@@ -3,14 +3,10 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const GoogleMaps = (props) => {
 
-    const { places } = props;
+    const { places, centerPoint, onMarkerSelection } = props;
     const [mapSize, setMapSize] = useState({
         height: window.innerHeight,
         width: window.innerWidth
-    });
-    const [centerPoint, setCenterPoint] = useState({
-        lat: 39.809734,
-        lng: -98.555618
     });
     const [zoom, setZoom] = useState(4.5)
     
@@ -23,6 +19,14 @@ const GoogleMaps = (props) => {
       })
     },[])
 
+    useEffect(() => {
+        if(places.length > 0) {
+            setZoom(12)
+        } else {
+            setZoom(4.5)
+        }
+    },[places])
+
     return (
         <div>
             <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API}>
@@ -31,9 +35,8 @@ const GoogleMaps = (props) => {
                     center={centerPoint}
                     zoom={zoom}
                 >
-                {places.map(place => {
-                    console.warn('PLACE: ',place)
-                    return <Marker position={{ lat: place.lat, lng: place.lng }} />
+                {places.map((place, index) => {
+                    return <Marker key={index} onClick={() => onMarkerSelection(place)} position={{ lat: place.lat, lng: place.lng }} />
                 })}
                 </GoogleMap>
             </LoadScript>
