@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Input = () => {
+const Input = (props) => {
     return (
-        <input placeholder='Search...' style={{
+        <input value={props.value} onChange={props.handleSearch} placeholder='Search...' style={{
             height: '87%',
             width: '70%',
             borderRadius: 50,

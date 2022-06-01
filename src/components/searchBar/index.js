@@ -4,12 +4,13 @@ import SearchIcon from '../common/searchIcon';
 import ClearButton from '../common/clear';
 import Menu from '../common/menu';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 
+    const { search, handleSearch, clearSearch } = props;
     const [barSize, setBarSize] = useState({
         height: window.innerHeight/12,
         width: window.innerWidth/3
-    })
+    });
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -33,11 +34,10 @@ const SearchBar = () => {
             display: 'flex',
             border: '2px solid #822DA7',
             boxShadow: '2px 5px rgba(0,0,0,0.2)'
-            
         }}>
             <SearchIcon />
-            <Input />
-            <ClearButton />
+            <Input value={search} handleSearch={handleSearch} />
+            <ClearButton search={search} clear={clearSearch} />
             <Menu />
         </div>
     )
