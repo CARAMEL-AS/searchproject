@@ -1,39 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import React, { useEffect, useState } from 'react';
+import GoogleMaps from './components/GoogleMaps';
 import SearchBar from './components/searchBar';
+import { getPlaces } from './helper/google'; 
 
 function App() {
 
-  useEffect(() => {},[])
+  const [searchItem, setSearchItem] = useState('');
+  const [data, setData] = useState([]);
 
-  const containerStyle = {
-    width: '1450px',
-    height: '690px'
-  };
-  
-  const center = {
-    lat: -3.745,
-    lng: -38.523
-  };
+  const clearSearch = () => {
+    setSearchItem('')
+  }
+
+  const handleSearch = (e) => {
+    setSearchItem(e.target.value);
+  }
+
+  // useEffect(() => {
+  //   if(searchItem.length > 0) getPlaces('Burger King')
+  // },[searchItem])
 
   return (
-    <div className="App">
-      <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_API}
-      >
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={10}
-        >
-         <div>
-          <SearchBar />
-         </div>
-        </GoogleMap>
-      </LoadScript>
-      {/* <Wrapper apiKey='AIzaSyCKOxKsD6kQTlxnbgeG2vdXIP-_NpFrqEw' render={render}>
-
-      </Wrapper> */}
+    <div className="App" style={{width: window.innerWidth, alignItems: 'center'}}>
+      <GoogleMaps />
+      <SearchBar search={searchItem} handleSearch={handleSearch} clearSearch={clearSearch} />
     </div>
   );
 }
