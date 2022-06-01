@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-const GoogleMaps = () => {
+const GoogleMaps = (props) => {
 
+    const { places } = props;
     const [mapSize, setMapSize] = useState({
         height: window.innerHeight,
         width: window.innerWidth
@@ -30,7 +31,10 @@ const GoogleMaps = () => {
                     center={centerPoint}
                     zoom={zoom}
                 >
-                <div></div>
+                {places.map(place => {
+                    console.warn('PLACE: ',place)
+                    return <Marker position={{ lat: place.lat, lng: place.lng }} />
+                })}
                 </GoogleMap>
             </LoadScript>
         </div>

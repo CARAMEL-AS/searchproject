@@ -16,13 +16,16 @@ function App() {
     setSearchItem(e.target.value);
   }
 
-  // useEffect(() => {
-  //   if(searchItem.length > 0) getPlaces('Burger King')
-  // },[searchItem])
+  useEffect(() => {
+    if(searchItem.length > 0) {
+      getPlaces(searchItem)
+      .then(res => setData(res))
+    }
+  },[searchItem])
 
   return (
     <div className="App" style={{width: window.innerWidth, alignItems: 'center'}}>
-      <GoogleMaps />
+      <GoogleMaps places={data} />
       <SearchBar search={searchItem} handleSearch={handleSearch} clearSearch={clearSearch} />
     </div>
   );
