@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {},[])
 
   return (
-    <div className="App">
+    <div className="App" style={{width: window.innerWidth, alignItems: 'center'}}>
       <GoogleMaps />
       <SearchBar />
     </div>

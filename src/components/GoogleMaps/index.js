@@ -26,7 +26,7 @@ const GoogleMaps = () => {
         <div>
             <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API}>
                 <GoogleMap
-                    mapContainerStyle={{height: mapSize.height, width: mapSize.width}}
+                    mapContainerStyle={{height: mapSize.height, width: mapSize.width }}
                     center={centerPoint}
                     zoom={zoom}
                 >
