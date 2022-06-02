@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import GoogleMaps from './components/GoogleMaps';
 import SearchBar from './components/searchBar';
 import DropDown from './components/dropDown';
-import { getPlaces, findCenter } from './helper/google'; 
+import { getPlaces, findCenter } from './helper/google';
+import { addToHistory } from './helper/localServer';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
   }
 
   const handleMarkerSelection = (data) => {
+    addToHistory(data);
     setSelectedMarker(data);
   }
 
