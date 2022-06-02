@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Input = (props) => {
+
+
+
+
     return (
-        <input value={props.value} onChange={props.handleSearch} placeholder='Search...' style={{
+        
+        <input value={props.value}  onChange={props.handleSearch}  placeholder='Search...' style={{
             height: '87%',
             width: '70%',
             borderRadius: 50,
@@ -12,7 +17,7 @@ const Input = (props) => {
             paddingRight: '3%',
             outline: 'none',
             fontWeight: 'bold'
-        }}/>
+        }} />
     )
 }
 

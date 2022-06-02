@@ -6,6 +6,8 @@ import Menu from '../common/menu';
 
 const SearchBar = (props) => {
 
+
+    
     const { search, handleSearch, clearSearch } = props;
     const [barSize, setBarSize] = useState({
         height: window.innerHeight/12,
@@ -20,6 +22,12 @@ const SearchBar = (props) => {
           })
         })
     },[])
+
+    const handleChange = (e) => {
+        handleSearch(e.target.value);
+    }
+
+    
 
     return (
         <div style={{
@@ -36,7 +44,7 @@ const SearchBar = (props) => {
             boxShadow: '2px 5px rgba(0,0,0,0.2)'
         }}>
             <SearchIcon />
-            <Input value={search} handleSearch={handleSearch} />
+            <Input value={search} handleSearch={handleSearch}  handleChange={handleChange}/>
             <ClearButton search={search} clear={clearSearch} />
             <Menu />
         </div>
