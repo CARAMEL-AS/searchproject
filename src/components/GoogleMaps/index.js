@@ -21,6 +21,7 @@ const GoogleMaps = () => {
         })
       })
     },[])
+    
 
     return (
         <div>
