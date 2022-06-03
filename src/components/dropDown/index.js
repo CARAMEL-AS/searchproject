@@ -21,10 +21,10 @@ const DropDown = (props) => {
 
     useEffect(() => {
         setDropDownSize({
-            height: selectedPlace ? window.innerHeight/3 : 0,
+            height: selectedPlace || menu ? window.innerHeight/3 : 0,
             width: window.innerWidth/3.1
         })
-    },[selectedPlace])
+    },[selectedPlace, menu])
 
     return (
         <div style={{

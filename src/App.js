@@ -10,10 +10,15 @@ function App() {
   const [searchItem, setSearchItem] = useState('');
   const [data, setData] = useState([]);
   const [selectedMarker, setSelectedMarker] = useState(null);
+  const [displayMenu, setDisplayMenu] = useState(false);
   const [centerPoint, setCenterPoint] = useState({
     lat: 39.809734,
     lng: -98.555618
   })
+
+  const handleDisplayMenu = () => {
+    setDisplayMenu(!displayMenu);
+  }
 
   const clearSearch = () => {
     setSearchItem('');
@@ -52,8 +57,8 @@ function App() {
   return (
     <div className="App" style={{width: window.innerWidth, alignItems: 'center'}}>
       <GoogleMaps places={data} centerPoint={centerPoint} onMarkerSelection={handleMarkerSelection} />
-      <DropDown selectedPlace={selectedMarker} close={handleClearMarker} />
-      <SearchBar search={searchItem} handleSearch={handleSearch} clearSearch={clearSearch} />
+      <DropDown menu={displayMenu} selectedPlace={selectedMarker} close={handleClearMarker} />
+      <SearchBar search={searchItem} handleSearch={handleSearch} clearSearch={clearSearch} displayMenu={handleDisplayMenu} />
     </div>
   );
 }
